@@ -1,1 +1,1 @@
-Pokedex2.0
+Pokedex 2.0

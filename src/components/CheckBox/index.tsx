@@ -1,12 +1,17 @@
 import { useContext } from "react";
-import { CheckboxContext } from "../../../src/CheckboxContext";
+import { CheckboxContext } from "../../CheckboxContext";
 import styles from "../../../styles/CheckBox.module.css";
-export function CheckBox({ text }) {
+
+type CheckBoxProps = {
+  text: string;
+};
+
+export function CheckBox({ text }: CheckBoxProps) {
   const { setCheckBoxValues, checkBoxValues } = useContext(CheckboxContext);
 
   const updatedCheckBoxValues = [...checkBoxValues];
 
-  function PushValues(e) {
+  function PushValues(e: string) {
     const index = updatedCheckBoxValues.indexOf(e);
 
     if (updatedCheckBoxValues.includes(e)) {

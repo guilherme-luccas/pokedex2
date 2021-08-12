@@ -2,7 +2,7 @@
 
 ## Para testar acesse pokedex2-eight.vercel.app
 
-[Pokedex2.0](pokedex2-eight.vercel.app)
+[Pokedex2.0](https://pokedex2-eight.vercel.app)
 
 ## Instalação
 

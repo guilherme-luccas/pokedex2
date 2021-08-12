@@ -10,12 +10,16 @@ import achivImg from "../assets/icons/conquistas.png";
 import dashImg from "../assets/icons/dashboard.png";
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
+import { Range } from "rc-slider";
+import "rc-slider/assets/index.css";
 
 import { useState, useEffect } from "react";
 import { PokemonCard } from "../src/components/PokemonCard";
 import { CheckBox } from "../src/components/CheckBox";
 
 export default function Home({ pokemons }) {
+  const [filterValue, setFilterValue] = useState([0, 4000]);
+
   function ToggleActivity() {
     setActive(!active);
   }
@@ -48,18 +52,26 @@ export default function Home({ pokemons }) {
             <p>Total visíveis: {pokemons.length}</p>
             <div className={styles.containerScroll}>
               <div className={styles.grid}>
-                {pokemons.map((pokemon, index) => {
-                  return (
-                    <PokemonCard
-                      key={index}
-                      name={pokemon.name}
-                      cp={pokemon.maxCP}
-                      number={pokemon.number}
-                      types={pokemon.types}
-                      image={pokemon.image}
-                    />
-                  );
-                })}
+                {pokemons
+                  .filter((val) => {
+                    if (
+                      val.maxCP >= filterValue[0] &&
+                      val.maxCP <= filterValue[1]
+                    )
+                      return val;
+                  })
+                  .map((pokemon, index) => {
+                    return (
+                      <PokemonCard
+                        key={index}
+                        name={pokemon.name}
+                        cp={pokemon.maxCP}
+                        number={pokemon.number}
+                        types={pokemon.types}
+                        image={pokemon.image}
+                      />
+                    );
+                  })}
               </div>
             </div>
           </div>
@@ -70,10 +82,17 @@ export default function Home({ pokemons }) {
               <p>Filtro</p>
               <div>
                 <p>maxCP</p>
+                <Range
+                  min={0}
+                  max={4000}
+                  defaultValue={filterValue}
+                  onChange={setFilterValue}
+                />
               </div>
+
               <div className={styles.filterRange}>
-                <div className={styles.filterRangeValue}>329</div>
-                <div className={styles.filterRangeValue}>2550</div>
+                <div className={styles.filterRangeValue}>{filterValue[0]}</div>
+                <div className={styles.filterRangeValue}>{filterValue[1]}</div>
               </div>
               <div>
                 <p className={styles.filterTypesText}>Types</p>
@@ -86,7 +105,7 @@ export default function Home({ pokemons }) {
                   <CheckBox text="Dark" />
                   <CheckBox text="Fire" />
                   <CheckBox text="Flying" />
-                  <CheckBox text="Eletric" />
+                  <CheckBox text="Electric" />
                   <CheckBox text="Rock" />
                   <CheckBox text="Dragon" />
                   <CheckBox text="Steel" />

@@ -1,9 +1,12 @@
 import Image from "next/image";
 import styles from "../../../styles/NavItem.module.css";
 
-import listsImg from "../../../assets/icons/lista.png";
+type NavItemProps = {
+  text: string;
+  icon: { src: string };
+};
 
-export function NavItem({ text, icon, active }) {
+export function NavItem({ text, icon }: NavItemProps) {
   return (
     <div className={styles.container}>
       <div className={styles.active}>

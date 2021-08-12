@@ -1,13 +1,12 @@
 import { useContext } from "react";
 import { CheckboxContext } from "../../CheckboxContext";
+import styles from "../../../styles/CheckBox.module.css";
 
 type CheckBoxProps = {
   text: string;
 };
 
 export function CheckBox({ text }: CheckBoxProps) {
-  const styles = require("../../../styles/CheckBox.module.css");
-
   const { setCheckBoxValues, checkBoxValues } = useContext(CheckboxContext);
 
   const updatedCheckBoxValues = [...checkBoxValues];

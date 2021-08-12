@@ -13,16 +13,34 @@ import client from "../apollo-client";
 import { Range } from "rc-slider";
 import "rc-slider/assets/index.css";
 
-import { useState, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { PokemonCard } from "../src/components/PokemonCard";
 import { CheckBox } from "../src/components/CheckBox";
+import { CheckboxContext } from "../src/CheckboxContext";
 
 export default function Home({ pokemons }) {
+  const [defaultPokemonList, setDefaultPokemonList] = useState(pokemons);
+
+  const [pokemonVisible, setPokemonVisible] = useState([]);
+
   const [filterValue, setFilterValue] = useState([0, 4000]);
+  const { checkBoxValues } = useContext(CheckboxContext);
 
   function ToggleActivity() {
     setActive(!active);
   }
+  useEffect(() => {
+    const newPokemonVisible = defaultPokemonList
+      .filter(
+        (val) => val.maxCP >= filterValue[0] && val.maxCP <= filterValue[1]
+      )
+      .filter(
+        (val) =>
+          val.types.some((tipo) => checkBoxValues.includes(tipo)) ||
+          checkBoxValues.length == 0
+      );
+    setPokemonVisible(newPokemonVisible);
+  }, [checkBoxValues, filterValue]);
 
   return (
     <div className={styles.container}>
@@ -49,29 +67,21 @@ export default function Home({ pokemons }) {
         <div className={styles.containerList}>
           <div className={styles.containerGrid}>
             <h2>Lista de Pokémons</h2>
-            <p>Total visíveis: {pokemons.length}</p>
+            <p>Total visíveis: {pokemonVisible.length}</p>
             <div className={styles.containerScroll}>
               <div className={styles.grid}>
-                {pokemons
-                  .filter((val) => {
-                    if (
-                      val.maxCP >= filterValue[0] &&
-                      val.maxCP <= filterValue[1]
-                    )
-                      return val;
-                  })
-                  .map((pokemon, index) => {
-                    return (
-                      <PokemonCard
-                        key={index}
-                        name={pokemon.name}
-                        cp={pokemon.maxCP}
-                        number={pokemon.number}
-                        types={pokemon.types}
-                        image={pokemon.image}
-                      />
-                    );
-                  })}
+                {pokemonVisible.map((pokemon, index) => {
+                  return (
+                    <PokemonCard
+                      key={index}
+                      name={pokemon.name}
+                      cp={pokemon.maxCP}
+                      number={pokemon.number}
+                      types={pokemon.types}
+                      image={pokemon.image}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -115,41 +125,6 @@ export default function Home({ pokemons }) {
                   <CheckBox text="Ice" />
                   <CheckBox text="Ghost" />
                   <CheckBox text="Fairy" />
-
-                  {/* <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label>
-                  <input type="checkbox" />
-                  <label htmlFor="">Name</label> */}
                 </div>
               </div>
             </div>

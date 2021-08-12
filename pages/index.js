@@ -26,9 +26,9 @@ export default function Home({ pokemons }) {
   const [filterValue, setFilterValue] = useState([0, 4000]);
   const { checkBoxValues } = useContext(CheckboxContext);
 
-  function ToggleActivity() {
-    setActive(!active);
-  }
+  // function ToggleActivity() {
+  //   setActive(!active);
+  // }
   useEffect(() => {
     const newPokemonVisible = defaultPokemonList
       .filter(
@@ -55,7 +55,7 @@ export default function Home({ pokemons }) {
             </div>
           </div>
           <div>
-            <button onClick={ToggleActivity}>
+            <button>
               <NavItem text="Lista" icon={listImg} />
             </button>
             {/* <NavItem text="Conquistas" icon={achivImg} />

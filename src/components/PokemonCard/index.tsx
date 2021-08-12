@@ -1,7 +1,21 @@
 import styles from "../../../styles/PokemonCard.module.css";
 import Image from "next/image";
 
-export function PokemonCard({ name, cp, number, image, types }) {
+type PokemonCardProps = {
+  name: string;
+  cp: number;
+  number: string;
+  image: string;
+  types: [];
+};
+
+export function PokemonCard({
+  name,
+  cp,
+  number,
+  image,
+  types,
+}: PokemonCardProps) {
   let color = "";
   if (cp <= 500) {
     color = "#F87060";

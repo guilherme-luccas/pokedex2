@@ -1,6 +1,6 @@
 # Pokedex 2.0
 
-## Para testar acesse [vercel](pokedex2-eight.vercel.app)
+## Para testar acesse pokedex2-eight.vercel.app
 
 ## Instalação
 

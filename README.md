@@ -11,18 +11,16 @@ https://github.com/guilherme-luccas/pokedex2.git
 
 ```
 
-2.
+2.  Para instalar a pasta node_modules
 
 ```sh
 yarn install
 
 ```
 
-Para instalar a pasta node_modules 3.
+3.  Para rodar no navegador
 
 ```sh
 yarn dev
 
 ```
-
-Para rodar no navegador

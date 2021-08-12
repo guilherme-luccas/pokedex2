@@ -1,0 +1,8 @@
+.container {
+  width: 83px;
+  height: 22px;
+}
+.container label {
+  font-size: 16px;
+  margin-left: 5px;
+}

@@ -1,5 +1,10 @@
 html,
-body {
+body,
+h4,
+p,
+h2,
+button,
+label {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -13,4 +18,9 @@ a {
 
 * {
   box-sizing: border-box;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }

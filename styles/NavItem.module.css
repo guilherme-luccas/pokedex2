@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 37px;
+}
+.active {
+  height: 36px;
+  width: 36px;
+  background-color: #00a7fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40%;
+  box-shadow: 0px 0px 7px 1px #00a7fd;
+}
+.normal {
+  height: 36px;
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container p {
+  margin-left: 20px;
+  font-family: Roboto;
+  font-weight: bold;
+  color: #00a7fd;
+  text-shadow: 1px 1px 4px #00a7fd;
+}

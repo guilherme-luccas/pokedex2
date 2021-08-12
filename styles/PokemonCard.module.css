@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  align-items: center;
+  width: 240px;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 10px;
+}
+.pokemonImage {
+  height: 64px;
+  width: 64px;
+  padding: 5px;
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 15px;
+  margin-right: 10px;
+}
+.pokemonName {
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: bold;
+}
+.pokemonTypes {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.pokemonCP {
+  color: #fff;
+  width: 60px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+}
+.pokemonNumber {
+  height: 57px;
+  width: 70px;
+  text-align: right;
+}

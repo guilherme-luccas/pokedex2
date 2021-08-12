@@ -58,10 +58,10 @@ export default function Home({ pokemons }) {
             <button onClick={ToggleActivity}>
               <NavItem text="Lista" icon={listImg} />
             </button>
-            <NavItem text="Conquistas" icon={achivImg} />
+            {/* <NavItem text="Conquistas" icon={achivImg} />
             <NavItem text="Pokédex" icon={dashImg} />
             <NavItem text="Ajuda" icon={helpImg} />
-            <NavItem text="Configuração" icon={configImg} />
+            <NavItem text="Configuração" icon={configImg} /> */}
           </div>
         </nav>
         <div className={styles.containerList}>

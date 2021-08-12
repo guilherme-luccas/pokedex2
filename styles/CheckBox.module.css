@@ -1,8 +1,16 @@
 .container {
-  width: 83px;
-  height: 22px;
+  height: 1.14vw;
 }
 .container label {
-  font-size: 16px;
-  margin-left: 5px;
+  font-size: 0.83vw;
+  margin-left: 0.26vw;
+}
+@media (max-width: 768px) {
+  .container {
+    height: 10px;
+  }
+  .container label {
+    font-size: 15px;
+    margin-left: 5px;
+  }
 }

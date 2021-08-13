@@ -1,8 +1,8 @@
 # Pokedex 2.0
 
-## Para testar acesse pokedex2-eight.vercel.app
+[Meu Linkedin](https://www.linkedin.com/in/guilhermeluccasdacosta/)
 
-[Pokedex2.0](https://pokedex2-eight.vercel.app)
+## Para testar acesse [Pokedex2.0](https://pokedex2-eight.vercel.app)
 
 ## Instalação
 

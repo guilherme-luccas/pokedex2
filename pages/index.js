@@ -13,10 +13,13 @@ import client from "../apollo-client";
 import { Range } from "rc-slider";
 import "rc-slider/assets/index.css";
 
-import { useState, useContext, useEffect } from "react";
-import { PokemonCard } from "../src/components/PokemonCard";
+import { useState, useContext, useEffect, lazy, Suspense } from "react";
+// import { PokemonCard } from "../src/components/PokemonCard";
 import { CheckBox } from "../src/components/CheckBox";
 import { CheckboxContext } from "../src/CheckboxContext";
+import { LazyLoading } from "../src/components/LazyLoading";
+
+const PokemonCard = lazy(() => import("../src/components/PokemonCard"));
 
 export default function Home({ pokemons }) {
   const [defaultPokemonList, setDefaultPokemonList] = useState(pokemons);
@@ -73,14 +76,15 @@ export default function Home({ pokemons }) {
               <div className={styles.grid}>
                 {pokemonVisible.map((pokemon, index) => {
                   return (
-                    <PokemonCard
-                      key={index}
-                      name={pokemon.name}
-                      cp={pokemon.maxCP}
-                      number={pokemon.number}
-                      types={pokemon.types}
-                      image={pokemon.image}
-                    />
+                    <Suspense key={index} fallback={<LazyLoading />}>
+                      <PokemonCard
+                        name={pokemon.name}
+                        cp={pokemon.maxCP}
+                        number={pokemon.number}
+                        types={pokemon.types}
+                        image={pokemon.image}
+                      />
+                    </Suspense>
                   );
                 })}
               </div>

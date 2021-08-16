@@ -9,7 +9,7 @@ type PokemonCardProps = {
   types: [];
 };
 
-export function PokemonCard({
+export default function PokemonCard({
   name,
   cp,
   number,

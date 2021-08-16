@@ -1,23 +1,24 @@
-import Head from "next/head";
+import { useState, useContext, useEffect, lazy, Suspense } from "react";
 import Image from "next/image";
+
+import client from "../apollo-client";
+
+import { gql } from "@apollo/client";
+import { Range } from "rc-slider";
+
 import styles from "../styles/Home.module.css";
+import "rc-slider/assets/index.css";
 import logo from "../assets/logo.png";
-import { NavItem } from "../src/components/NavItem";
 import listImg from "../assets/icons/lista.png";
 import helpImg from "../assets/icons/ajuda.png";
 import configImg from "../assets/icons/configuracao.png";
 import achivImg from "../assets/icons/conquistas.png";
 import dashImg from "../assets/icons/dashboard.png";
-import { gql } from "@apollo/client";
-import client from "../apollo-client";
-import { Range } from "rc-slider";
-import "rc-slider/assets/index.css";
 
-import { useState, useContext, useEffect, lazy, Suspense } from "react";
-// import { PokemonCard } from "../src/components/PokemonCard";
 import { CheckBox } from "../src/components/CheckBox";
 import { CheckboxContext } from "../src/CheckboxContext";
 import { LazyLoading } from "../src/components/LazyLoading";
+import { NavItem } from "../src/components/NavItem";
 
 const PokemonCard = lazy(() => import("../src/components/PokemonCard"));
 
@@ -30,9 +31,6 @@ export default function Home({ pokemons }) {
   const { checkBoxValues } = useContext(CheckboxContext);
   const active = false;
 
-  // function ToggleActivity() {
-  //   setActive(!active);
-  // }
   useEffect(() => {
     const newPokemonVisible = defaultPokemonList
       .filter(

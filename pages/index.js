@@ -25,6 +25,7 @@ export default function Home({ pokemons }) {
 
   const [filterValue, setFilterValue] = useState([0, 4000]);
   const { checkBoxValues } = useContext(CheckboxContext);
+  const active = false;
 
   // function ToggleActivity() {
   //   setActive(!active);
@@ -56,12 +57,12 @@ export default function Home({ pokemons }) {
           </div>
           <div>
             <button>
-              <NavItem text="Lista" icon={listImg} />
+              <NavItem text="Lista" icon={listImg} active={active} />
             </button>
-            {/* <NavItem text="Conquistas" icon={achivImg} />
-            <NavItem text="Pokédex" icon={dashImg} />
-            <NavItem text="Ajuda" icon={helpImg} />
-            <NavItem text="Configuração" icon={configImg} /> */}
+            <NavItem text="Conquistas" icon={achivImg} active={active} />
+            <NavItem text="Pokédex" icon={dashImg} active={active} />
+            <NavItem text="Ajuda" icon={helpImg} active={active} />
+            <NavItem text="Configuração" icon={configImg} active={active} />
           </div>
         </nav>
         <div className={styles.containerList}>

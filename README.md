@@ -2,7 +2,7 @@
 
 [Meu Linkedin](https://www.linkedin.com/in/guilhermeluccasdacosta/)
 
-## Para testar acesse [Pokedex2.0](https://pokedex2-eight.vercel.app)
+## Para testar acesse [Pokedex2.0](https://pokedex2-elyzngqld-guilherme-luccas.vercel.app/)
 
 ## Instalação
 

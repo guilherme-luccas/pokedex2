@@ -49,10 +49,10 @@ export default function Home({ pokemons }) {
       <div className={styles.containerApp}>
         <nav>
           <div className={styles.logo}>
-            <Image src={logo} />
+            
 
             <div>
-              <h4>Voltbras App</h4>
+              
               <p>Pokémon Manager</p>
             </div>
           </div>
